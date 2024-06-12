@@ -2,12 +2,15 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import homeImage from "../../../assets/images/sifat.gif";
+import { useEffect } from "react";
 const Banner = () => {
-  AOS.init({
-    easing: "ease-out-quart",
-    delay: 0,
-    duration: 1000,
-  });
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-quart",
+      delay: 0,
+      duration: 1000,
+    });
+  }, []);
   return (
     <div>
       <div className="">

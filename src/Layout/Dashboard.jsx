@@ -38,6 +38,12 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
+              <Link to="/dashboard/allEvent">
+                <GrUserAdd />
+                All Events
+              </Link>
+            </li>
+            <li>
               <Link to="/dashboard/dashboardHome">
                 <RxDashboard />
                 Dashboard
