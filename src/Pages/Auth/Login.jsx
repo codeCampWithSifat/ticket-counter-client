@@ -15,10 +15,10 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const { signIn } = useAuth();
+  const { signInUser } = useAuth();
 
   const onSubmit = (data) => {
-    signIn(data.email, data.password).then(() => {
+    signInUser(data.email, data.password).then(() => {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -37,17 +37,18 @@ const Login = () => {
       </Helmet>
       <div className=" flex justify-center items-center">
         <div className="w-96 p-4 mt-28 mb-10">
-          <h2 className="text-3xl text-center">Please Login</h2>
+          <h2 className="text-3xl text-center text-gray-400">Please Login</h2>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full ">
               <label className="label">
-                <span className="label-text text-md"> Email</span>
+                <span className="label-text text-md text-gray-400"> Email</span>
               </label>
               <input
                 type="email"
                 name="email"
                 className="input input-bordered w-full "
+                placeholder="Enter Your Password"
                 {...register("email", { required: true })}
               />
               {errors.email && (
@@ -56,12 +57,15 @@ const Login = () => {
             </div>
             <div className="form-control w-full ">
               <label className="label">
-                <span className="label-text text-md">Password</span>
+                <span className="label-text text-md text-gray-400">
+                  Password
+                </span>
               </label>
               <input
                 type="password"
                 name="password"
                 className="input input-bordered w-full "
+                placeholder="Enter Your Password"
                 {...register("password", {
                   required: true,
                   minLength: 5,

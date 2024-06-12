@@ -20,7 +20,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const axiosPublic = useAxiosPublic();
-  const { createUser, updateUserName, loading } = useAuth();
+  const { signUpUser, updateUserName, loading } = useAuth();
   //   const onSubmit = async (data) => {
   //     if (data.password !== data.confirmPassword) {
   //       return setPasswordError("Password/ConfirmPassword Not Matched");
@@ -75,11 +75,55 @@ const SignUp = () => {
   //     setPasswordError("");
   //   };
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
     if (data.password !== data.confirmPassword) {
       return setPasswordError("Password/ConfirmPassword Not Matched");
     }
+    const formData = new FormData();
+    const imageFile = { image: data.image[0] };
+    formData.append("file", imageFile);
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+
+    const imageResponse = res.data?.data?.display_url;
+
+    signUpUser(data.email, data.password)
+      .then((res) => {
+        console.log("Create User", res);
+        updateUserName(data.name)
+          .then(async () => {
+            const userInfo = {
+              name: data.name,
+              email: data.email,
+              avatar: imageResponse,
+              bloodGroup: data.bloodGroup,
+              phoneNumber: data.phoneNumber,
+            };
+
+            const userResponse = await axiosPublic.post("/users", userInfo);
+            if (userResponse.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${data.name} Sign Up Successfully`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    setPasswordError("");
   };
   return (
     <>
@@ -259,7 +303,7 @@ const SignUp = () => {
               type="submit"
               className="input input-bordered w-1/4 bg-primary text-white my-4"
               value="Register"
-              disabled={loading && <LoadingButton />}
+              disabled={loading ? <LoadingButton /> : ""}
             />
           </form>
 
