@@ -21,6 +21,7 @@ const Banner = () => {
               alt=""
               className=" lg:w-1/2 rounded-lg shadow-2xl md:w-full sm:w-full "
             />
+
             <div className="">
               {/* <h3 className="my-2">Consetetur Adipiscing</h3> */}
               <h2 className="text-3xl font-bold text-gray-400">
