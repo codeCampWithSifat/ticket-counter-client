@@ -85,7 +85,7 @@ const Login = () => {
             />
           </form>
 
-          <p>
+          <p className="text-gray-400">
             Don Not Have Any Account{" "}
             <Link to="/signup" className="text-red-500">
               Please Register

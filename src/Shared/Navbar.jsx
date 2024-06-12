@@ -16,8 +16,13 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/review">Client Review</Link>
+        <Link to="/allevent">All Event</Link>
       </li>
+      {user?.email && (
+        <li>
+          <Link to="/dashboard/dashboardHome">Dashboard</Link>
+        </li>
+      )}
       {!user?.email ? (
         <li>
           <Link to="/login">Login</Link>

@@ -21,59 +21,6 @@ const SignUp = () => {
   } = useForm();
   const axiosPublic = useAxiosPublic();
   const { signUpUser, updateUserName, loading } = useAuth();
-  //   const onSubmit = async (data) => {
-  //     if (data.password !== data.confirmPassword) {
-  //       return setPasswordError("Password/ConfirmPassword Not Matched");
-  //     }
-  //     const formData = new FormData();
-  //     const imageFile = { image: data.image[0] };
-  //     formData.append("file", imageFile);
-  //     const res = await axiosPublic.post(image_hosting_api, imageFile, {
-  //       headers: {
-  //         "content-type": "multipart/form-data",
-  //       },
-  //     });
-
-  //     const imageResponse = res.data?.data?.display_url;
-
-  //     createUser(data.email, data.password)
-  //       .then(() => {
-  //         updateUserProfile(data.name, imageResponse ? imageResponse : data.image)
-  //           .then(async () => {
-  //             const userInfo = {
-  //               name: data.name,
-  //               email: data.email,
-  //               avatar: imageResponse,
-  //               bloodGroup: data.bloodGroup,
-  //               district: data.district,
-  //               upazila: data.upazila,
-  //               status: "active",
-  //               role: "donor",
-  //             };
-
-  //             const userResponse = await axiosPublic.post(`/users`, userInfo);
-  //             if (userResponse.data.insertedId) {
-  //               reset();
-  //               Swal.fire({
-  //                 position: "top-end",
-  //                 icon: "success",
-  //                 title: `${data.name} Sign Up Successfully`,
-  //                 showConfirmButton: false,
-  //                 timer: 1500,
-  //               });
-  //               navigate("/");
-  //             }
-  //           })
-  //           .catch((error) => {
-  //             console.log(error);
-  //           });
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-
-  //     setPasswordError("");
-  //   };
 
   const onSubmit = async (data) => {
     if (data.password !== data.confirmPassword) {
