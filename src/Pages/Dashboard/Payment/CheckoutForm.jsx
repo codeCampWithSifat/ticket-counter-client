@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import useBookingPayment from "../../../Hooks/useBookingPayment";
+import { useQuery } from "@tanstack/react-query";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
@@ -15,9 +15,18 @@ const CheckoutForm = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [bookings] = useBookingPayment();
-  const totalPrice = bookings?.reduce((sum, item) => sum + item.totalPrice, 0);
-  const quantity = bookings?.map((item) => item.quantity);
+
+  const { data = {} } = useQuery({
+    queryKey: ["singleBookings", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/singleBookings?email=${user?.email}`);
+      console.log(res);
+      return res.data;
+    },
+  });
+
+  const totalPrice = data?.totalPrice || 1;
+
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure
@@ -70,21 +79,23 @@ const CheckoutForm = () => {
       console.log("paymentIntent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         setTransactionId(paymentIntent.id);
-        // sent data to the server
+
         const payment = {
-          email: user?.email,
           name: user?.displayName,
+          email: user?.email,
+          address: data?.address,
+          bookingStatus: data?.bookingStatus,
+          date: data?.date,
+          district: data?.district,
+          eventId: data?.eventId,
+          eventName: data?.eventName,
+          image: data?.image,
+          paymentStatus: "Done",
+          price: data?.price,
+          quantity: data?.quantity,
+          time: data?.time,
+          totalPrice: data?.totalPrice,
           transactionId: paymentIntent.id,
-          address: bookings.map((item) => item.address),
-          date: bookings.map((item) => item.date),
-          district: bookings.map((item) => item.district),
-          eventName: bookings.map((item) => item.eventName),
-          image: bookings.map((item) => item.image),
-          time: bookings.map((item) => item.time),
-          eventId: bookings.map((item) => item.eventId),
-          price: bookings.map((item) => item.price),
-          quantity: bookings.map((item) => item.quantity),
-          totalPrice: bookings.map((item) => item.totalPrice),
         };
 
         const res = await axiosSecure.post("/payments", payment);
@@ -105,7 +116,7 @@ const CheckoutForm = () => {
   return (
     <div>
       <h2 className="text-center text-indigo-600 text-2xl font-bold mt-8">
-        You Have To Pay {totalPrice} For Ticket Taka For {quantity} Ticket
+        You Have To Pay {totalPrice} For Ticket Taka For {data?.quantity} Ticket
       </h2>
       <div className="mt-10">
         <form onSubmit={handleSubmit}>
