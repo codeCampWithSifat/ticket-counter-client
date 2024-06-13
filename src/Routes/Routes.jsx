@@ -15,6 +15,8 @@ import Profile from "../Pages/Dashboard/Profile/Profile";
 import ManageEvents from "../Pages/Dashboard/ManageEvents/ManageEvents";
 import ManageEventsDetails from "../Pages/Dashboard/ManageEvents/ManageEventsDetails";
 import EditManageEvents from "../Pages/Dashboard/ManageEvents/EditManageEvents";
+import BookingPage from "../Pages/Dashboard/Payment/BookingPage";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -89,6 +91,16 @@ export const router = createBrowserRouter([
         element: <EditManageEvents />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
+        path: "bookingPage/:id",
+        element: <BookingPage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
     ],
   },

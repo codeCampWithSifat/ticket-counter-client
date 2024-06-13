@@ -11,7 +11,6 @@ const Profile = () => {
     queryKey: ["users", user?.email],
     queryFn: async () => {
       const res = await axiosPublic.get(`/users?email=${user?.email}`);
-      console.log(res);
       return res?.data;
     },
   });

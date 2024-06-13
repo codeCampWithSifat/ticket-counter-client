@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const SingleEvent = ({ event }) => {
-  console.log(event);
   const {
     image,
     eventName,
