@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 
-const EventDetails = () => {
+const ManageEventsDetails = () => {
   const {
     address,
     date,
@@ -13,7 +13,6 @@ const EventDetails = () => {
     status,
     time,
   } = useLoaderData();
-
   return (
     <div className="flex justify-center items-center h-[800px] mt-10">
       <div className="card w-1/2 bg-base-100 shadow-xl flex ">
@@ -31,17 +30,10 @@ const EventDetails = () => {
           <p>Concert Time : {time}</p>
           <p>Status : {status.toUpperCase()}</p>
           <p>Messsage : {message}</p>
-          <Link to={`/dashboard/allEvent`}>
-            <div className="card-actions justify-end pb-2 mx-4  mt-4">
+          <Link to={`/dashboard/manageEvents`}>
+            <div className="card-actions justify-end pb-2 mx-4 ">
               <div className="badge badge-outline bg-indigo-800 text-white">
                 <span>Go To All Event</span>
-              </div>
-            </div>
-          </Link>
-          <Link to={`/dashboard/allEvent`}>
-            <div className="card-actions justify-start pb-2 -mt-8">
-              <div className="badge badge-outline bg-indigo-800 text-white">
-                <span>Book A Ticket</span>
               </div>
             </div>
           </Link>
@@ -51,4 +43,4 @@ const EventDetails = () => {
   );
 };
 
-export default EventDetails;
+export default ManageEventsDetails;

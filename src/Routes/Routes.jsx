@@ -13,6 +13,8 @@ import AllEvents from "../Pages/Dashboard/AllEvents/AllEvent";
 import EventDetails from "../Pages/Dashboard/AllEvents/EventDetails";
 import Profile from "../Pages/Dashboard/Profile/Profile";
 import ManageEvents from "../Pages/Dashboard/ManageEvents/ManageEvents";
+import ManageEventsDetails from "../Pages/Dashboard/ManageEvents/ManageEventsDetails";
+import EditManageEvents from "../Pages/Dashboard/ManageEvents/EditManageEvents";
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +77,18 @@ export const router = createBrowserRouter([
       {
         path: "manageEvents",
         element: <ManageEvents />,
+      },
+      {
+        path: "manageEventsDetails/:id",
+        element: <ManageEventsDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
+        path: "editManageEvents/:id",
+        element: <EditManageEvents />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
       },
     ],
   },

@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
-
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 /* eslint-disable no-unused-vars */
 const ManageSingleEvent = ({ event, refetch }) => {
   const {
@@ -14,6 +17,33 @@ const ManageSingleEvent = ({ event, refetch }) => {
     status,
     _id,
   } = event;
+
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const handleDeleteEvent = () => {
+    Swal.fire({
+      title: `Are you sure?  ${user.displayName}`,
+      text: "You Want To Delete This Menu Item",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/events/${_id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Event has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <div>
@@ -33,8 +63,18 @@ const ManageSingleEvent = ({ event, refetch }) => {
           </div>
 
           <div className="card-actions justify-center pb-2 mx-4 my-4 ">
-            <button className="btn btn-primary btn-sm">Edit</button>
-            <button className="btn btn-error btn-sm">Delete</button>
+            <Link to={`/dashboard/manageEventsDetails/${_id}`}>
+              <button className="btn btn-secondary btn-sm">More Info</button>
+            </Link>
+            <Link to={`/dashboard/editManageEvents/${_id}`}>
+              <button className="btn btn-primary btn-sm">Edit</button>
+            </Link>
+            <button
+              onClick={() => handleDeleteEvent(_id)}
+              className="btn btn-error btn-sm text-white"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
