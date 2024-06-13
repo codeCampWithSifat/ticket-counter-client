@@ -99,9 +99,8 @@ const CheckoutForm = () => {
         };
 
         const res = await axiosSecure.post("/payments", payment);
-        console.log(res);
         if (res.data?.insertedId) {
-          navigate("/dashboard/dashboardHome");
+          navigate("/dashboard/getMyTicket");
           Swal.fire({
             position: "top-end",
             icon: "success",

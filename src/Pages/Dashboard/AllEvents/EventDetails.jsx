@@ -39,13 +39,23 @@ const EventDetails = () => {
               </div>
             </div>
           </Link>
-          <Link to={`/dashboard/bookingPage/${_id}`}>
-            <div className="card-actions justify-start pb-2 -mt-8">
-              <div className="badge badge-outline bg-indigo-800 text-white">
-                <span>Book A Ticket</span>
+          {status && status === "paid" ? (
+            <Link to={`/dashboard/bookingPage/${_id}`}>
+              <div className="card-actions justify-start pb-2 -mt-8">
+                <div className="badge badge-outline bg-indigo-800 text-white">
+                  <span>Book A Ticket</span>
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          ) : (
+            <Link to={`/dashboard/freeBookingPage/${_id}`}>
+              <div className="card-actions justify-start pb-2 -mt-8">
+                <div className="badge badge-outline bg-red-800 text-white">
+                  <span>Book Free Ticket</span>
+                </div>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </div>

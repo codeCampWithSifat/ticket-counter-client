@@ -3,6 +3,7 @@ import { FaHome } from "react-icons/fa";
 import { FaUserGraduate } from "react-icons/fa";
 import { FaUserPen } from "react-icons/fa6";
 import { GrUserAdd } from "react-icons/gr";
+import { FaTicket } from "react-icons/fa6";
 
 const Dashboard = () => {
   return (
@@ -55,6 +56,13 @@ const Dashboard = () => {
               <Link to="/dashboard/manageEvents">
                 <GrUserAdd />
                 Manage Events
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/dashboard/getMyTicket">
+                <FaTicket />
+                Get My Tickets
               </Link>
             </li>
 
