@@ -10,6 +10,8 @@ import Dashboard from "../Layout/Dashboard";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import AddEvent from "../Pages/Dashboard/AddEvent/AddEvent";
 import AllEvents from "../Pages/Dashboard/AllEvents/AllEvent";
+import EventDetails from "../Pages/Dashboard/AllEvents/EventDetails";
+import Profile from "../Pages/Dashboard/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,16 @@ export const router = createBrowserRouter([
       {
         path: "allEvent",
         element: <AllEvents />,
+      },
+      {
+        path: "eventDetails/:id",
+        element: <EventDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const SingleEvent = ({ event }) => {
+const SingleHomeEvent = ({ event }) => {
   console.log(event);
   const {
     image,
@@ -17,7 +17,7 @@ const SingleEvent = ({ event }) => {
   } = event;
   return (
     <div>
-      <div className="card  bg-base-100 shadow-xl">
+      <div className="card   bg-base-100 shadow-xl">
         <figure>
           <img src={image} alt="Shoes" />
         </figure>
@@ -43,4 +43,4 @@ const SingleEvent = ({ event }) => {
   );
 };
 
-export default SingleEvent;
+export default SingleHomeEvent;

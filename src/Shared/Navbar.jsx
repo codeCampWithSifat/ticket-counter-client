@@ -15,12 +15,9 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/allevent">All Event</Link>
-      </li>
       {user?.email && (
         <li>
-          <Link to="/dashboard/dashboardHome">Dashboard</Link>
+          <Link to="/dashboard/allEvent">Dashboard</Link>
         </li>
       )}
       {!user?.email ? (
@@ -41,7 +38,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-slate-900 p-3 shadow-lg text-white fixed z-40">
+      <div className="navbar max-w-[1500px] mx-auto bg-slate-900 p-3 shadow-lg text-white fixed z-40">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,7 +65,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost text-xl lg:mx-20">
-            <h3>Sifat_Ticket_Counter</h3>
+            <h3 className="lg:ml-16">Ticket</h3>
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex mr-20">

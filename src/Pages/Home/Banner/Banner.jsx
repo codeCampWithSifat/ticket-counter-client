@@ -13,7 +13,7 @@ const Banner = () => {
   }, []);
   return (
     <div>
-      <div className="">
+      <div className="max-w-screen-xl mx-auto">
         <div className="hero h-3/4">
           <div
             data-aos="fade-down"
