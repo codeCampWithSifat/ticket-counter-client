@@ -1,13 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaUserSecret } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
-import { RxDashboard } from "react-icons/rx";
 import { FaUserGraduate } from "react-icons/fa";
 import { FaUserPen } from "react-icons/fa6";
 import { GrUserAdd } from "react-icons/gr";
-import { ImBlog } from "react-icons/im";
-import { PiUsersThreeFill } from "react-icons/pi";
-import { TfiMoney } from "react-icons/tfi";
 
 const Dashboard = () => {
   return (
@@ -44,12 +39,6 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/dashboardHome">
-                <RxDashboard />
-                Dashboard
-              </Link>
-            </li>
-            <li>
               <Link to="/dashboard/dashboardAddEvent">
                 <FaUserGraduate />
                 Add Event
@@ -68,42 +57,9 @@ const Dashboard = () => {
                 Manage Events
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard/myDonationRequest">
-                <FaUserSecret /> My Donation Request
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/contentManagement/add-blog">
-                <ImBlog />
-                Add Blog
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/myDonation">
-                <TfiMoney />
-                My Payment Info
-              </Link>
-            </li>
 
             <>
               <div className="divider divider-primary"></div>
-              <li>
-                <Link to="/dashboard/allUsers">
-                  <PiUsersThreeFill />
-                  All Users
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/allBloodDonationRequest">
-                  <GrUserAdd /> All Blood Donation Request
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/allBlogs">
-                  <ImBlog /> All Blogs Request
-                </Link>
-              </li>
             </>
           </ul>
         </div>
