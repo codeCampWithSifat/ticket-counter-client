@@ -63,9 +63,9 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/createDonationRequest">
+              <Link to="/dashboard/manageEvents">
                 <GrUserAdd />
-                Create Donation Request
+                Manage Events
               </Link>
             </li>
             <li>

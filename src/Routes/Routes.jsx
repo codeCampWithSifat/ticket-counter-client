@@ -12,6 +12,7 @@ import AddEvent from "../Pages/Dashboard/AddEvent/AddEvent";
 import AllEvents from "../Pages/Dashboard/AllEvents/AllEvent";
 import EventDetails from "../Pages/Dashboard/AllEvents/EventDetails";
 import Profile from "../Pages/Dashboard/Profile/Profile";
+import ManageEvents from "../Pages/Dashboard/ManageEvents/ManageEvents";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "manageEvents",
+        element: <ManageEvents />,
       },
     ],
   },
