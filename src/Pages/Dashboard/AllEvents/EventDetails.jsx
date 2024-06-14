@@ -39,12 +39,13 @@ const EventDetails = () => {
 
           <div className="card-actions justify-end pb-2 mx-4  mt-4">
             <div>
-              <button
-                onClick={handleGoEvent}
-                className="btn btn-primary btn-sm"
-              >
-                Go All Event
-              </button>
+              <div className="-mt-12">
+                <Link to={`/dashboard/allEvent`}>
+                  <button className="btn btn-primary btn-sm">
+                    Buy Your Ticket
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
 
