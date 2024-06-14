@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 const EventDetails = () => {
   const {
@@ -14,6 +14,10 @@ const EventDetails = () => {
     time,
     _id,
   } = useLoaderData();
+  const navigate = useNavigate();
+  const handleGoEvent = () => {
+    navigate("/dashboard/allEvent");
+  };
 
   return (
     <div className="flex justify-center items-center h-[800px] mt-10">
@@ -35,9 +39,12 @@ const EventDetails = () => {
 
           <div className="card-actions justify-end pb-2 mx-4  mt-4">
             <div>
-              <Link to="/dashboard/allEvent">
-                <button className="btn btn-primary btn-sm">Go All Event</button>
-              </Link>
+              <button
+                onClick={handleGoEvent}
+                className="btn btn-primary btn-sm"
+              >
+                Go All Event
+              </button>
             </div>
           </div>
 
