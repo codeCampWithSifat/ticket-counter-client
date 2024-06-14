@@ -32,29 +32,35 @@ const EventDetails = () => {
           <p>Concert Time : {time}</p>
           <p>Status : {status.toUpperCase()}</p>
           <p>Messsage : {message}</p>
-          <Link to={`/dashboard/allEvent`}>
-            <div className="card-actions justify-end pb-2 mx-4  mt-4">
-              <div className="badge badge-outline bg-indigo-800 text-white">
-                <span>Go To All Event</span>
+
+          <div className="card-actions justify-end pb-2 mx-4  mt-4">
+            <div>
+              <Link to="/dashboard/allEvent">
+                <button className="btn btn-primary btn-sm">Go All Event</button>
+              </Link>
+            </div>
+          </div>
+
+          {status && status === "paid" ? (
+            <div>
+              <div className="-mt-12">
+                <Link to={`/dashboard/bookingPage/${_id}`}>
+                  <button className="btn btn-primary btn-sm">
+                    Buy Your Ticket
+                  </button>
+                </Link>
               </div>
             </div>
-          </Link>
-          {status && status === "paid" ? (
-            <Link to={`/dashboard/bookingPage/${_id}`}>
-              <div className="card-actions justify-start pb-2 -mt-8">
-                <div className="badge badge-outline bg-indigo-800 text-white">
-                  <span>Book A Ticket</span>
-                </div>
-              </div>
-            </Link>
           ) : (
-            <Link to={`/dashboard/freeBookingPage/${_id}`}>
-              <div className="card-actions justify-start pb-2 -mt-8">
-                <div className="badge badge-outline bg-red-800 text-white">
-                  <span>Book Free Ticket</span>
-                </div>
+            <div>
+              <div className="-mt-12">
+                <Link to={`/dashboard/freeBookingPage/${_id}`}>
+                  <button className="btn btn-error text-white btn-primary btn-sm">
+                    Get Your Free Ticket
+                  </button>
+                </Link>
               </div>
-            </Link>
+            </div>
           )}
         </div>
       </div>

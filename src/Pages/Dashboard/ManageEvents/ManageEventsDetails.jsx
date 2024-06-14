@@ -30,13 +30,11 @@ const ManageEventsDetails = () => {
           <p>Concert Time : {time}</p>
           <p>Status : {status.toUpperCase()}</p>
           <p>Messsage : {message}</p>
-          <Link to={`/dashboard/manageEvents`}>
-            <div className="card-actions justify-end pb-2 mx-4 ">
-              <div className="badge badge-outline bg-indigo-800 text-white">
-                <span>Go To All Event</span>
-              </div>
-            </div>
-          </Link>
+          <div>
+            <Link to={`/dashboard/manageEvents`}>
+              <button>Go All Event</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
