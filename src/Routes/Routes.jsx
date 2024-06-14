@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
         path: "eventDetails/:id",
         element: <EventDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(`https://ticket-counter-server.vercel.app/events/${params.id}`),
       },
       {
         path: "profile",
@@ -86,19 +86,19 @@ export const router = createBrowserRouter([
         path: "manageEventsDetails/:id",
         element: <ManageEventsDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(`https://ticket-counter-server.vercel.app/events/${params.id}`),
       },
       {
         path: "editManageEvents/:id",
         element: <EditManageEvents />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(`https://ticket-counter-server.vercel.app/events/${params.id}`),
       },
       {
         path: "bookingPage/:id",
         element: <BookingPage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(`https://ticket-counter-server.vercel.app/events/${params.id}`),
       },
       {
         path: "payment",
@@ -112,7 +112,7 @@ export const router = createBrowserRouter([
         path: "freeBookingPage/:id",
         element: <FreeBookingPage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(`https://ticket-counter-server.vercel.app/events/${params.id}`),
       },
     ],
   },
