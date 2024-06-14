@@ -23,7 +23,7 @@ const GetMyTicket = () => {
   }
 
   const padiTicketUser = data.filter((user) => user.bookingStatus === "paid");
-  const freeTicketUser = data.filter((user) => user.status === "free");
+  const freeTicketUser = data.filter((user) => user.bookingStatus === "free");
   return (
     <div className="max-w-screen-lg mx-auto mt-16 text-center">
       <Tabs>
