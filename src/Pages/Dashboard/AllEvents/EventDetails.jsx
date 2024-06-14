@@ -47,7 +47,7 @@ const EventDetails = () => {
 
           {status && status === "paid" ? (
             <div className="mt-4">
-              <div className="mt-4">
+              <div className="">
                 <Link to={`/dashboard/bookingPage/${_id}`}>
                   <button className="btn btn-primary btn-sm">
                     Buy Your Ticket
@@ -57,7 +57,7 @@ const EventDetails = () => {
             </div>
           ) : (
             <div className="mt-4">
-              <div className="mt-4">
+              <div className="">
                 <Link to={`/dashboard/freeBookingPage/${_id}`}>
                   <button className="btn btn-error text-white btn-primary btn-sm">
                     Get Your Free Ticket
