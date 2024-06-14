@@ -1,9 +1,20 @@
-# React + Vite
+# Ticket Booking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Type: Service Related
 
-Currently, two official plugins are available:
+### Follow these steps to make this website:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# ticket-counter-client
+1. Use React Js And Tailwind Css In Frontend
+2. Use React Router Dome For Routing
+3. Use Firebase For Authentication
+4. Implement JWT For Authectication
+5. Implement CRUD And Searching
+6. Implement Stripe Payment Method
+7. Implement Filtering On Ticket Collecting
+8. Use Express JS For Backend
+
+### Live Site Link:
+
+<a href="https://ticket-counter-client.vercel.app/">Frontend Live Site</a>
+
+<a href="https://ticket-counter-server.vercel.app/">Backend Live Site</a>
