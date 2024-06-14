@@ -24,16 +24,15 @@ const Profile = () => {
           <img src={data?.avatar} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
           <p>Name : {data?.name}</p>
           <p>Email : {data?.email}</p>
           <p>Phone Number : {data?.phoneNumber}</p>
           <p>Blood Group : {data?.bloodGroup}</p>
-          <div className="card-actions justify-end my-10">
+          {/* <div className="card-actions justify-end my-10">
             <button className="btn btn-sm btn-primary">
               Update Information
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
