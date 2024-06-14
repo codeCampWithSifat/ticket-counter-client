@@ -34,11 +34,11 @@ const EventDetails = () => {
           <p>Messsage : {message}</p>
 
           <div className="card-actions justify-end pb-2 mx-4  mt-4">
-            <div>
-              <Link to="/dashboard/allEvent">
+            <Link to="/dashboard/allEvent">
+              <div>
                 <button className="btn btn-primary btn-sm">Go All Event</button>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
 
           {status && status === "paid" ? (
